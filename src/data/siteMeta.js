@@ -1,8 +1,8 @@
-import Oshyn from '@/images/logos/oshyn.svg'
-import KrugerColor from '@/images/logos/kruger-color.svg'
-import SenecaColor from '@/images/logos/seneca-color.svg'
 
-
+import logoOshyn from '@/images/logos/oshyn.svg'
+import losgoSeneca from '@/images/logos/seneca-color.svg'
+import logoKruger from '@/images/logos/kruger-color.svg'
+import logoVerndale from '@/images/logos/verndale.jpeg'
 import logoVanilla from '@/images/logos/vanilla.svg'
 import logoFleek from '@/images/logos/fleeksvg.svg'
 import logoUblue from '@/images/logos/ublue.png'
@@ -12,27 +12,21 @@ import logoKubernetes from '@/images/logos/kubernetes.svg'
 import logoCaptainhook from '@/images/logos/captainhook.svg'  
 const siteMeta = {
     title: "Oscar Catota",
-    description: "Oscar Catota is a full stack software developer",
-    copyright: "oecz7",
+    description: "Oscar Catota is a Frontend Developer, UI enthusiast, and digital problem solver..",
+    copyright: "Oscar Catota, EC-UIO",
     author: {
         name: "Oscar Catota",
         email: "ocatota@icloud.com",
-        twitter: "https://twitter.com/oecz7",
-        mastodon: "https://tty0.social/@bketelsen",
-        instagram: "https://instagram.com/bketelsen",
-        github: "https://github.com/bketelsen",
-        linkedin: "https://linkedin.com/in/brianketelsen",
-        twitch: "https://twitch.tv/bketelsen",
-        youtube: "https://youtube.com/@bketelsen",
+        github: "https://github.com/oscarcz7",
+        linkedin: "https://www.linkedin.com/in/oscar-catota/",
     },
-    siteUrl: "https://oecz7"
+    siteUrl: "https://oecz.dev"
 }
-
-export const resume = [
+ export const resume = [
     {
-      company: 'Oshyn Inc',
-      title: 'Associate Front End Developer',
-      logo: Oshyn,
+      company: 'OSHYN.',
+      title: 'Front End Developer 2',
+      logo: logoOshyn,
       start: '2022',
       end: {
         label: 'Present',
@@ -40,21 +34,25 @@ export const resume = [
       },
     },
     {
-      company: 'Seneca Corp.',
-      title: 'Full Stack Developer - Contractor',
-      logo: SenecaColor,
+      company: 'Seneca Corporación S.A.S.',
+      title: 'Fullstack Developer',
+      logo: losgoSeneca,
       start: '2023',
-      end: {
-        label: 'Present',
-        dateTime: new Date().getFullYear(),
-      },
+      end: '2025',
     },
     {
-      company: 'KrugerCorp',
-      title: 'Full Stack Technical Consultant',
-      logo: KrugerColor,
+      company: 'Kruger Corp',
+      title: 'Technical Consultant',
+      logo: logoKruger,
       start: '2022',
       end: '2023',
+    },
+    {
+      company: 'Verndale',
+      title: 'Sitecore Content Entry Specialist',
+      logo: logoVerndale,
+      start: '2022',
+      end: '2022',
     },
   ]
 export const projects = [
@@ -110,4 +108,6 @@ export const projects = [
 
 
 ]
+
+
 export default siteMeta;

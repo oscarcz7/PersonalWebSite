@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from 'next/future/image'
 import Link from 'next/link'
 import clsx from 'clsx'
 
@@ -10,24 +10,20 @@ import {
   InstagramIcon,
   GitHubIcon,
   LinkedInIcon,
-  MastodonIcon
+  MastodonIcon,
 } from '@/components/SocialIcons'
 
-
-import image1 from '@/images/gallery/ocatota.jpg'
-import image2 from '@/images/gallery/ocatota.jpg'
-import image3 from '@/images/gallery/ocatota.jpg'
-import image4 from '@/images/gallery/ocatota.jpg'
-import image5 from '@/images/gallery/ocatota.jpg'
-
-
+// import image3 from '@/images/photos/1102.jpg'
+// import image2 from '@/images/photos/20150716-070618871-3.jpg'
+// import image1 from '@/images/photos/bike.jpg'
+// import image5 from '@/images/photos/band.jpg'
+// import image4 from '@/images/photos/BW013.jpg'
 
 import { generateRssFeed } from '@/lib/generateRssFeed'
 import { getAllArticles } from '@/lib/getAllArticles'
 import { formatDate } from '@/lib/formatDate'
-import  siteMeta, {resume} from '@/data/siteMeta'
-import { NextSeo } from 'next-seo';
-
+import siteMeta, { resume } from '@/data/siteMeta'
+import { NextSeo } from 'next-seo'
 
 function MailIcon(props) {
   return (
@@ -87,21 +83,6 @@ function ArrowDownIcon(props) {
     </svg>
   )
 }
-
-function RedirectIcon(props) {
-  return (
-    <svg fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4" {...props}>
-    <path 
-      strokeLinecap="round" 
-      strokeLinejoin="round" 
-      d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" 
-    />
-</svg>
-  )
-}
-
-
-
 
 function Article({ article }) {
   return (
@@ -196,87 +177,92 @@ function Resume() {
           </li>
         ))}
       </ol>
-      <Button href="www.linkedin.com/in/oscar-catota" variant="secondary" className="w-full mt-6 group">
-               More on LinkedIn 
+      <Button
+        href="https://www.linkedin.com/in/oscar-catota/"
+        variant="secondary"
+        className="w-full mt-6 group"
+      >
+        More on LinkedIn
         <ArrowDownIcon className="w-4 h-4 transition stroke-zinc-400 group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
       </Button>
-      <Button href="https://oecz-cv.my.canva.site/" variant='secondary' className="w-full mt-3 group">
-        View Complete Resume
-        <RedirectIcon className="w-4 h-4 transition stroke-zinc-400 group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
-      </Button>
     </div>
   )
 }
 
-function Photos() {
-  let rotations = ['rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2']
+// function Photos() {
+//   let rotations = ['rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2']
 
-  return (
-    <div className="mt-16 sm:mt-20">
-      <div className="flex justify-center gap-5 py-4 -my-4 overflow-hidden sm:gap-8">
-        {[image1, image2, image3, image4, image5].map((image, imageIndex) => (
-          <div
-            key={image.src}
-            className={clsx(
-              'relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl',
-              rotations[imageIndex % rotations.length]
-            )}
-          >
-            <Image
-              src={image}
-              alt=""
-              sizes="(min-width: 640px) 18rem, 11rem"
-              className="absolute inset-0 object-cover w-full h-full"
-            />
-          </div>
-        ))}
-      </div>
-    </div>
-  )
-}
+//   return (
+//     <div className="mt-16 sm:mt-20">
+//       <div className="flex justify-center gap-5 py-4 -my-4 overflow-hidden sm:gap-8">
+//         {[image1, image2, image3, image4, image5].map((image, imageIndex) => (
+//           <div
+//             key={image.src}
+//             className={clsx(
+//               'relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl',
+//               rotations[imageIndex % rotations.length]
+//             )}
+//           >
+//             <Image
+//               src={image}
+//               alt=""
+//               sizes="(min-width: 640px) 18rem, 11rem"
+//               className="absolute inset-0 object-cover w-full h-full"
+//             />
+//           </div>
+//         ))}
+//       </div>
+//     </div>
+//   )
+// }
 
 export default function Home({ articles }) {
   return (
     <>
-    <NextSeo
-      title="Oecz Site"
-      description={siteMeta.description}
-      canonical="https://brian.dev/"
-      openGraph={{
-        url: 'https://brian.dev',
-        images: [
-          {
-            url: `https://og.brian.dev/api/og?title=${siteMeta.title}&desc=${siteMeta.description}`,
-            width: 1200,
-            height: 600,
-            alt: 'Og Image Alt',
-            type: 'image/jpeg',
-          }
-        ],
-        siteName: 'brian.dev',
-      }}
-    />
+      <NextSeo
+        title="Oscar Catota"
+        description={siteMeta.description}
+        canonical="https://oecz.dev/"
+        openGraph={{
+          url: 'https://oecz.dev',
+          images: [
+            {
+              url: `https://og.oecz.dev/api/og?title=${siteMeta.title}&desc=${siteMeta.description}`,
+              width: 1200,
+              height: 600,
+              alt: 'Og Image Alt',
+              type: 'image/jpeg',
+            },
+          ],
+          siteName: 'oecz.dev',
+        }}
+      />
       <Container className="mt-9">
         <div className="max-w-2xl text-lg">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-            Software Developer Engineer, Baller and a designer enthusiast.
+            Frontend Developer, UI enthusiast, and digital problem solver.
           </h1>
           <p className="mt-6 prose dark:prose-invert">
-            I’m Brian, and I teach people how to use the Cloud. I’ve been active in Open Source for as long as I’ve been coding &mdash; and that’s a long time.
+            Hi, I’m Oscar — a frontend developer passionate about building
+            clean, responsive, and user-friendly web experiences. From HTML,
+            CSS, and JavaScript to modern frameworks like React and Next.js, I
+            focus on crafting well-structured and accessible interfaces.
           </p>
           <p className="mt-6 prose dark:prose-invert">
-            With some friends, I wrote a <a href="https://www.manning.com/books/go-in-action">book about the Go programming language</a>.
-             I’ve given many <Link href={"/speaking"} >talks</Link> about Go, Distributed Computing, and programming in general.
+            I’ve worked on projects that prioritize performance, scalable design
+            systems, and frontend best practices, leveraging tools like Tailwind
+            CSS, REST APIs, and component-based architecture.
           </p>
           <p className="mt-6 prose dark:prose-invert">
-            Poke around and see what I’m up to. It’s all open source, so feel free to contribute.
+            Lately, I’ve been sharing my knowledge through personal projects,
+            technical blog posts, and open source contributions. I’m also
+            building my personal site where you’ll find my work, blog entries,
+            and UI components I create every day.
+            <br />
+            Feel free to explore what I’m working on. Everything’s open source —
+            and collaboration is always welcome!
           </p>
           <div className="flex gap-6 mt-6">
-            <SocialLink
-              href={siteMeta.author.instagram}
-              aria-label="Follow on Instagram"
-              icon={InstagramIcon}
-            />
             <SocialLink
               href="https://github.com"
               aria-label="Follow on GitHub"
@@ -290,7 +276,7 @@ export default function Home({ articles }) {
           </div>
         </div>
       </Container>
-      <Photos />
+      {/* <Photos /> */}
       <Container className="mt-24 md:mt-28">
         <div className="grid max-w-xl grid-cols-1 mx-auto gap-y-20 lg:max-w-none lg:grid-cols-2">
           <div className="flex flex-col gap-16">

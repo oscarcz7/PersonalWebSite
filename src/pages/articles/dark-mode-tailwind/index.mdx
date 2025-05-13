@@ -1,0 +1,168 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+import { Callout } from '@/components/Callout'
+
+export const meta = {
+  author: 'Oscar Catota',
+  date: '2025-05-12',
+  title: 'Building an Elegant Dark Mode with Tailwind CSS',
+  description: 'A complete step-by-step guide to implementing an elegant, accessible, and persistent dark mode using Tailwind CSS, JavaScript, and best practices.',
+  lang: 'en'
+}
+
+export default (props) => <ArticleLayout meta={meta} {...props} />
+
+**Dark Mode** has gone from a trend to a standard in modern design. It enhances visual experience, reduces eye strain, and allows for interface personalization. In this article, I’ll walk you through **how to implement an elegant dark mode with Tailwind CSS**, step by step.
+
+---
+
+## 🛠️ Step 1: Configure Tailwind for Dark Mode
+
+In your `tailwind.config.js` file, enable dark mode using the class strategy:
+
+```js
+// tailwind.config.js
+module.exports = {
+  darkMode: 'class', // or 'media' if you prefer system preference
+  content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
+  theme: {
+    extend: {}
+  },
+  plugins: []
+}
+```
+
+Using `'class'` gives you full control for toggling the theme with JavaScript.
+
+---
+
+## 💡 Step 2: Basic HTML Structure
+
+In your root HTML (or layout component if using Next.js or Astro), add the `dark` class on `<html>` when dark mode is active:
+
+```html
+<html class="dark">
+  <body class="text-black bg-white dark:bg-gray-900 dark:text-white">
+    <div class="flex flex-col items-center justify-center min-h-screen">
+      <h1 class="mb-4 text-4xl font-bold">🌙 Dark Mode</h1>
+      <button id="toggleTheme" class="px-4 py-2 text-sm bg-gray-200 rounded dark:bg-gray-700">
+        Toggle Theme
+      </button>
+    </div>
+  </body>
+</html>
+```
+
+---
+
+## ✨ Step 3: Add a Theme Toggle Script
+
+Use `localStorage` to remember user preference:
+
+```html
+<script>
+  const root = document.documentElement;
+  const toggle = document.getElementById('toggleTheme');
+
+  // Apply preference on load
+  if (localStorage.theme === 'dark') {
+    root.classList.add('dark');
+  } else {
+    root.classList.remove('dark');
+  }
+
+  toggle.addEventListener('click', () => {
+    root.classList.toggle('dark');
+    // Save preference
+    if (root.classList.contains('dark')) {
+      localStorage.theme = 'dark';
+    } else {
+      localStorage.theme = 'light';
+    }
+  });
+</script>
+```
+
+This script applies the theme on page load and lets the user toggle without refreshing.
+
+---
+
+## 🎨 Step 4: Design Your UI for Both Themes
+
+Use `dark:` prefix where needed. Example:
+
+```html
+<div class="p-4 text-gray-800 bg-white rounded-lg shadow dark:bg-gray-800 dark:text-gray-100">
+  <h2 class="text-xl font-semibold">Section Title</h2>
+  <p>This content adjusts according to the selected theme.</p>
+</div>
+```
+
+---
+
+## 🧪 Step 5: Add Smooth Transitions
+
+To avoid harsh changes, apply transitions:
+
+```css
+/* In your global CSS */
+html {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+```
+
+Or using Tailwind utilities:
+
+```html
+<div class="transition-colors duration-300">
+  <!-- content -->
+</div>
+```
+
+---
+
+## 🧠 Bonus: Detect System Preference
+
+Automatically apply dark mode if the user prefers it:
+
+```js
+if (
+  localStorage.theme === 'dark' ||
+  (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+) {
+  document.documentElement.classList.add('dark');
+}
+```
+
+---
+
+## 🧹 Step 6: Clean and Persistent Setup
+
+Keep your code clean and DRY:
+
+```js
+function applyTheme(theme) {
+  document.documentElement.classList.toggle('dark', theme === 'dark');
+  localStorage.theme = theme;
+}
+
+toggle.addEventListener('click', () => {
+  const newTheme = document.documentElement.classList.contains('dark') ? 'light' : 'dark';
+  applyTheme(newTheme);
+});
+```
+
+---
+
+## ✅ Conclusion
+
+Following these steps, you now have a **fully functional, elegant, and persistent dark mode**, using just Tailwind and a little JavaScript. This technique is perfect for modern sites, portfolios, blogs, and rich UI applications.
+
+
+
+---
+
+## 🔗 Recommended Resources
+
+- [Tailwind CSS Dark Mode](https://tailwindcss.com/docs/dark-mode)
+- [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/)
+- [MDN prefers-color-scheme](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme)

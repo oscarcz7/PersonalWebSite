@@ -1,13 +1,13 @@
-import Image from 'next/image'
+import Image from 'next/future/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { Popover, Transition } from '@headlessui/react'
 import clsx from 'clsx'
 
 import { Container } from '@/components/Container'
-import avatarImage from '@/images/gallery/ocatota.jpg'
+import avatarImage from '@/images/profile.jpeg'
 
-import { Fragment, useEffect, useRef } from 'react'
+import { Fragment, useEffect, useRef, useState } from 'react'
 
 function CloseIcon(props) {
   return (
@@ -122,10 +122,9 @@ function MobileNavigation(props) {
             </div>
             <nav className="mt-6">
               <ul className="-my-2 text-base divide-y divide-zinc-100 text-zinc-800 dark:divide-zinc-100/5 dark:text-zinc-300">
-                <MobileNavItem href="/about">About</MobileNavItem>
+                {/* <MobileNavItem href="/about">About</MobileNavItem> */}
                 <MobileNavItem href="/articles">Articles</MobileNavItem>
-                <MobileNavItem href="/projects">Projects</MobileNavItem>
-                <MobileNavItem href="/speaking">Speaking</MobileNavItem>
+                {/* <MobileNavItem href="/projects">Projects</MobileNavItem> */}
                 <MobileNavItem href="/uses">Uses</MobileNavItem>
               </ul>
             </nav>
@@ -163,10 +162,9 @@ function DesktopNavigation(props) {
   return (
     <nav {...props}>
       <ul className="flex px-3 text-sm font-medium rounded-full shadow-lg bg-white/90 text-zinc-800 shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10">
-        <NavItem href="/about">About</NavItem>
+        {/* <NavItem href="/about">About</NavItem> */}
         <NavItem href="/articles">Articles</NavItem>
-        <NavItem href="/projects">Projects</NavItem>
-        <NavItem href="/speaking">Speaking</NavItem>
+        {/* <NavItem href="/projects">Projects</NavItem> */}
         <NavItem href="/uses">Uses</NavItem>
       </ul>
     </nav>
@@ -219,7 +217,7 @@ function AvatarContainer({ className, ...props }) {
     <div
       className={clsx(
         className,
-        'h-28 w-28 rounded-full bg-white/90 p-0.5 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:ring-white/10'
+        'h-10 w-10 rounded-full bg-white/90 p-0.5 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:ring-white/10'
       )}
       {...props}
     />
@@ -249,7 +247,12 @@ function Avatar({ large = false, className, ...props }) {
 }
 
 export function Header() {
-  let isHomePage = useRouter().pathname === '/'
+  const router = useRouter()
+  const [isHomePage, setIsHomePage] = useState(false)
+
+  useEffect(() => {
+    setIsHomePage(router.pathname === '/')
+  }, [router.pathname])
 
   let headerRef = useRef()
   let avatarRef = useRef()

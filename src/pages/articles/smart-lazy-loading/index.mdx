@@ -1,0 +1,41 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+
+export const meta = {
+  author: 'Oscar Catota',
+  date: '2025-05-12',
+  title: 'Improving your site performance with smart lazy loading',
+  description: 'A deep dive into smart lazy loading techniques for images, components, and modules to improve web performance and Core Web Vitals.',
+  lang: 'en'
+}
+
+export default (props) => <ArticleLayout meta={meta} {...props} />
+
+One of the most powerful techniques to improve the perceived performance of a website is **lazy loading**. By loading non-critical content only when needed, you reduce initial load time, save bandwidth, and provide a faster experience to your users.
+
+In this detailed article, we’ll explore:
+
+- What lazy loading is and how it works
+- Native lazy loading for images
+- Using `IntersectionObserver` for custom lazy strategies
+- Dynamic imports and code splitting in React and Next.js
+- Best practices to make your implementation effective and SEO-friendly
+
+---
+
+## 🧠 What is Lazy Loading?
+
+Lazy loading refers to **delaying the loading of resources** (images, scripts, components) until they are about to enter the viewport. This allows the browser to load only what's necessary initially.
+
+It improves performance metrics like:
+- First Contentful Paint (FCP)
+- Largest Contentful Paint (LCP)
+- Total Blocking Time (TBT)
+
+---
+
+## 🖼 Native Lazy Loading for Images
+
+The simplest and most widely supported method is to use:
+
+```html
+<img src="/images/hero.jpg" alt="Hero banner" loading="lazy" />
