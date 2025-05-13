@@ -3,17 +3,10 @@ import Link from 'next/link'
 import clsx from 'clsx'
 
 import { Container } from '@/components/Container'
-import {
-  TwitterIcon,
-  InstagramIcon,
-  GitHubIcon,
-  LinkedInIcon,
-  MastodonIcon
-} from '@/components/SocialIcons'
+import { GitHubIcon, LinkedInIcon } from '@/components/SocialIcons'
 import portraitImage from '@/images/photos/ocatota.jpg'
 import siteMeta from '@/data/siteMeta'
-import { NextSeo } from 'next-seo';
-
+import { NextSeo } from 'next-seo'
 
 function SocialLink({ className, href, children, icon: Icon }) {
   return (
@@ -54,9 +47,9 @@ export default function About() {
               url: `https://og.oecz.dev/api/og?title=About&desc=${siteMeta.description}`,
               width: 1200,
               height: 600,
-              alt: 'Og Image Alt',
+              alt: 'oscar catota',
               type: 'image/jpeg',
-            }
+            },
           ],
           siteName: 'oecz.dev',
         }}
@@ -75,45 +68,61 @@ export default function About() {
           </div>
           <div className="lg:order-first lg:row-span-2">
             <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-              I’m Oscar Catota. I live in Florida, where I help people
-              across the world learn the Cloud.
+              I’m Oscar Catota. I live in Quito, Ecuador, where I craft modern
+              web experiences and bring ideas to life through code.
             </h1>
-            <div className="mt-6 text-lg prose space-y-7 dark:prose-invert text-zinc-600 dark:text-zinc-400">
+            <div className="mt-6 text-lg prose space-y-7 text-zinc-600 dark:prose-invert dark:text-zinc-400">
               <p>
-                Howdy! Thanks for stopping by. I’m Brian and I’ve been doing technology
-                things since <a href="https://en.wikipedia.org/wiki/Acoustic_coupler">acoustic
-                  modem couplers</a> were a thing. I love Open Source and exploring different programming languages.
-                Some highlights about me and my activities:
+                Hey there! Thanks for stopping by. I’m Oscar — a frontend
+                developer with 4 years of experience building responsive,
+                accessible, and user-friendly websites and applications. While
+                frontend is my specialty, I also enjoy exploring backend
+                technologies when the project calls for it.
               </p>
               <p>
-                <b>Army Veteran:</b> Bradley Fighting Vehicle Gunner, Infantry, 1st Armored Division
-              </p>
-              <p>
-                <b>Father of <s>four</s> five</b> with <s>19</s> 21 years difference between oldest and youngest child
-              </p>
-              <p>
-                <b>Co-founded GopherCon</b> <a href="https://gophercon.com">the largest conference for Go developers</a>.
-              </p>
-              <p>
-                <b>Co-authored</b> <a href="https://www.amazon.com/Go-Action-William-Kennedy/dp/1617291781">Go In Action</a> for Manning Publishing.
-              </p>
-              <p>
-                <b>Co-wrote</b> Skynet and SkyDNS with Erik St. Martin, which was eventually morphed into the DNS service discovery that powers Kubernetes.
-              </p>
-              <p>
-                <b>Contributed</b> to the largest projects that power the Internet. Go, Kubernetes, Etcd, and so many more.
-              </p>
-              <p>
-                I love Open Source, learning in public, and sharing what I learn with others.
+                A few highlights about me and what I enjoy:
+                <ul role="list">
+                  <li>
+                    Frontend Developer: Focused on building clean, maintainable
+                    interfaces with React, Next.js, and Tailwind CSS.
+                  </li>
+                  <li>
+                    Team Member at Oshyn Inc.: Collaborating on digital
+                    solutions for global clients.
+                  </li>
+                  <li>
+                    UI/UX Enthusiast: I care deeply about design, usability, and
+                    the way people interact with technology.
+                  </li>
+                  <li>
+                    Passionate About Sports: Whether it’s playing or watching,
+                    sports keep me balanced and inspired.
+                  </li>
+                  <li>
+                    Curious Learner: Always exploring new tools, frameworks, and
+                    design patterns to grow as a developer. I believe great
+                    digital experiences are built at the intersection of code,
+                    design, and empathy.
+                  </li>
+                </ul>
+                I’m here to learn, build, and contribute wherever I can.
               </p>
             </div>
           </div>
           <div className="lg:pl-20">
             <ul role="list">
-              <SocialLink href={siteMeta.author.github} icon={GitHubIcon} className="mt-4">
+              <SocialLink
+                href={siteMeta.author.github}
+                icon={GitHubIcon}
+                className="mt-4"
+              >
                 Follow on GitHub
               </SocialLink>
-              <SocialLink href={siteMeta.author.linkedin} icon={LinkedInIcon} className="mt-4">
+              <SocialLink
+                href={siteMeta.author.linkedin}
+                icon={LinkedInIcon}
+                className="mt-4"
+              >
                 Follow on LinkedIn
               </SocialLink>
               <SocialLink
