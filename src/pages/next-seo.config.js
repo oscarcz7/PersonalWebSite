@@ -2,12 +2,12 @@ export default {
     openGraph: {
       type: 'website',
       locale: 'en_IE',
-      url: 'https://www.oecz.dev/',
+      url: 'https://personal-web-site-topaz-one.vercel.app',
       siteName: 'Oscar Catota',
     },
     twitter: {
-      handle: '@bketelsen',
-      site: '@bketelsen',
+      handle: '@oecz777',
+      site: '@oecz777',
       cardType: 'summary_large_image',
     },
   };

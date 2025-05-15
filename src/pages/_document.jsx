@@ -51,6 +51,15 @@ export default function Document() {
           href={`${process.env.NEXT_PUBLIC_SITE_URL}/rss/feed.json`}
         />
         <link rel="me" href="https://tty0.social/@bketelsen" />
+        <meta property="og:title" content="Oscar Catota | Frontend Developer" />
+        <meta property="og:description" content="Experiencias web limpias, responsivas y centradas en el usuario con React, Next.js y Tailwind CSS." />
+        <meta property="og:image" content="https://personal-web-site-topaz-one.vercel.app/images/og-thumbnail.jpg" />
+        <meta property="og:url" content="https://personal-web-site-topaz-one.vercel.app/" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Oscar Catota | Frontend Developer" />
+        <meta name="twitter:description" content="Experiencias web limpias, responsivas y centradas en el usuario con React, Next.js y Tailwind CSS." />
+        <meta name="twitter:image" content="https://personal-web-site-topaz-one.vercel.app/images/og-thumbnail.jpg" />
       </Head>
       <body className="flex flex-col h-full bg-zinc-50 dark:bg-black">
         <Main />
