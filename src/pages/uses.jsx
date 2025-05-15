@@ -52,20 +52,21 @@ export default function Uses() {
       >
         <div className="space-y-20">
           <ToolsSection title="Workstation">
-            <Tool title="13” MacBook Pro, M1 Max, 64GB RAM (2021)">
-              I don&apos;t know how Apple makes such a tiny laptop so fast and
-              responsive, no matter what load I put on it.
+            <Tool title="14” MacBook Pro, M3, 8GB RAM (2023)">
+              Super thin to be the best friend to work
             </Tool>
-            <Tool title="Dell XPS 8950">
-              12th Generation i7 with oodles of memory and 4TB of NVMe drives
-              running Bluefin Linux.
-            </Tool>
-            <Tool title="Moonlander Keyboard">
-              I had terrible RSI problems until I switched to the Moonlander and
-              the Apple Magic Trackpad.
+            <Tool title="Redragon Keyboard">
+              The best friend for long term code typing.
             </Tool>
             <Tool title="Apple Magic Trackpad">
               It even works on Linux. Who knew?
+            </Tool>
+          </ToolsSection>
+          <ToolsSection title="Design">
+            <Tool title="Figma">
+              We started using Figma as just a design tool but now it’s become
+              our virtual whiteboard for the entire company. Never would have
+              expected the collaboration features to be the real hook.
             </Tool>
           </ToolsSection>
         </div>
