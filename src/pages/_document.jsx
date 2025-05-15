@@ -50,7 +50,7 @@ export default function Document() {
           type="application/feed+json"
           href={`${process.env.NEXT_PUBLIC_SITE_URL}/rss/feed.json`}
         />
-        <link rel="me" href="https://tty0.social/@bketelsen" />
+        <link rel="me" href="https://tty0.social/@oecz777" />
         <meta property="og:title" content="Oscar Catota | Frontend Developer" />
         <meta property="og:description" content="Oscar Catota is a Frontend Developer, UI enthusiast, and digital problem solver.." />
         <meta property="og:image" content="https://personal-web-site-topaz-one.vercel.app/images/og-thumbnail.jpg" />
@@ -64,6 +64,7 @@ export default function Document() {
       <body className="flex flex-col h-full bg-zinc-50 dark:bg-black">
         <Main />
         <NextScript />
+        
       </body>
     </Html>
   )
