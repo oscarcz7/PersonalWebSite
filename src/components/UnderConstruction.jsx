@@ -14,7 +14,7 @@ const UnderConstruction = () => {
   return (
     <div className="flex items-center justify-center min-h-screen ">
       <div className="max-w-xl p-10 text-center">
-        <div className='mb-3'>
+        <div className="mb-3">
           <svg
             className="w-16 h-16 mx-auto text-teal-700"
             fill="none"
@@ -37,8 +37,12 @@ const UnderConstruction = () => {
           </p>
         </div>
 
-        <Button type="submit" className="flex-none ml-4">
-          Return to Home
+        <Button
+          href="/"
+          className="w-full mt-6 group"
+        >
+          Back to Home
+          {/* <ArrowDownIcon className="w-4 h-4 transition stroke-zinc-400 group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" /> */}
         </Button>
       </div>
     </div>
