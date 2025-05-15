@@ -48,57 +48,58 @@ export const resume = [
     end: '2022',
   },
 ]
-export const projects = [
-  {
-    name: 'Fleek',
-    description: 'Install and manage all the tools you need to be productive.',
-    link: { href: 'https://getfleek.dev', label: 'getfleek.dev' },
-    logo: '',
-  },
-  {
-    name: 'Universal Blue',
-    description: 'Custom Operating System images based on Fedora.',
-    link: { href: 'https://ublue.it', label: 'Universal Blue' },
-    logo: '',
-  },
-  {
-    name: 'Bluefin',
-    description:
-      'The next generation Linux workstation. Built for cloud-native, using cloud-native.',
-    link: { href: 'https://projectbluefin.io', label: 'Bluefin' },
-    logo: '',
-  },
-  {
-    name: 'Vanilla OS',
-    description:
-      'Vanilla OS is an immutable and atomic Ubuntu Linux-based Point Release distribution, that receives updates at the right time, neither before nor after, without sacrificing security and functionality.',
-    link: { href: 'https://vanillaos.org', label: 'vanillaos.org' },
-    logo: '',
-  },
-  {
-    name: 'Captain Hook',
-    description: 'Custom commands as webhooks.',
-    link: {
-      href: 'https://github.com/bketelsen/captainhook',
-      label: 'github.com',
-    },
-    logo: '',
-  },
-  {
-    name: 'Kubernetes',
-    description: 'Production-Grade Container Scheduling and Management',
-    link: {
-      href: 'https://github.com/kubernetes/kubernetes',
-      label: 'github.com',
-    },
-    logo: '',
-  },
-  {
-    name: 'Go',
-    description: 'Build fast, reliable, and efficient software at scale',
-    link: { href: 'https://go.dev', label: 'go.dev' },
-    logo: '',
-  },
-]
+export const projects = []
+// [
+//   {
+//     name: 'Fleek',
+//     description: 'Install and manage all the tools you need to be productive.',
+//     link: { href: 'https://getfleek.dev', label: 'getfleek.dev' },
+//     logo: '',
+//   },
+//   {
+//     name: 'Universal Blue',
+//     description: 'Custom Operating System images based on Fedora.',
+//     link: { href: 'https://ublue.it', label: 'Universal Blue' },
+//     logo: '',
+//   },
+//   {
+//     name: 'Bluefin',
+//     description:
+//       'The next generation Linux workstation. Built for cloud-native, using cloud-native.',
+//     link: { href: 'https://projectbluefin.io', label: 'Bluefin' },
+//     logo: '',
+//   },
+//   {
+//     name: 'Vanilla OS',
+//     description:
+//       'Vanilla OS is an immutable and atomic Ubuntu Linux-based Point Release distribution, that receives updates at the right time, neither before nor after, without sacrificing security and functionality.',
+//     link: { href: 'https://vanillaos.org', label: 'vanillaos.org' },
+//     logo: '',
+//   },
+//   {
+//     name: 'Captain Hook',
+//     description: 'Custom commands as webhooks.',
+//     link: {
+//       href: 'https://github.com/bketelsen/captainhook',
+//       label: 'github.com',
+//     },
+//     logo: '',
+//   },
+//   {
+//     name: 'Kubernetes',
+//     description: 'Production-Grade Container Scheduling and Management',
+//     link: {
+//       href: 'https://github.com/kubernetes/kubernetes',
+//       label: 'github.com',
+//     },
+//     logo: '',
+//   },
+//   {
+//     name: 'Go',
+//     description: 'Build fast, reliable, and efficient software at scale',
+//     link: { href: 'https://go.dev', label: 'go.dev' },
+//     logo: '',
+//   },
+// ]
 
 export default siteMeta

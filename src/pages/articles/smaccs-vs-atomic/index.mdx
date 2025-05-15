@@ -1,0 +1,140 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+
+export const meta = {
+  author: 'Oscar Catota',
+  date: '2025-05-15',
+  title: 'Choosing Between SMACSS and Atomic Design: A Deep Dive into CSS Architecture',
+  description:
+    'Understand the core principles, benefits, and differences between SMACSS and Atomic Design. Learn when to use each architecture and how to structure scalable, maintainable CSS for modern web projects.',
+  lang: 'en',
+}
+
+export default (props) => <ArticleLayout meta={meta} {...props} />
+
+Designing a scalable and maintainable CSS architecture is a cornerstone of modern frontend development. Whether you're building a design system, working on a growing SaaS platform, or managing a component-based UI framework, selecting the right architecture will impact the long-term success of your codebase.
+
+Two of the most recognized methodologies are **SMACSS** and **Atomic Design**. This article will compare them in-depth, outline when to use each, and explore other relevant strategies for structuring CSS intelligently.
+
+---
+
+## 🧠 What is SMACSS?
+
+**SMACSS (Scalable and Modular Architecture for CSS)**, created by Jonathan Snook, is a style guide that organizes CSS rules into logical categories. Its goal is to reduce specificity, improve modularity, and create consistency across a codebase.
+
+### 🔍 SMACSS Categories
+
+- **Base**: Resets and basic elements (e.g., `body`, `h1`)
+- **Layout**: Structural regions (e.g., `header`, `footer`, `sidebar`)
+- **Module**: Reusable UI components (e.g., `card`, `form`)
+- **State**: Variations or temporary styles (`.is-active`, `.is-hidden`)
+- **Theme**: Skins, color palettes, or branding
+
+### ✅ SMACSS Benefits
+
+- Clear separation of concerns
+- Lower specificity = easier overrides
+- Easier debugging and file organization
+- Works well with traditional and BEM naming
+
+### 🚫 SMACSS Challenges
+
+- Less aligned with component-based frameworks (React/Vue)
+- Can be hard to enforce in large teams without conventions
+- Does not natively promote reusability of style primitives
+
+---
+
+## 🧬 What is Atomic Design?
+
+**Atomic Design**, by Brad Frost, is a methodology for crafting design systems. It breaks interfaces down into **five levels of abstraction**:
+
+1. **Atoms** – Basic HTML elements (`button`, `input`, `label`)
+2. **Molecules** – Groups of atoms (e.g., `search bar`)
+3. **Organisms** – Complex groups forming sections (e.g., `header`, `product card`)
+4. **Templates** – Page-level structures (no content)
+5. **Pages** – Actual implementations with data
+
+### ✅ Atomic Design Benefits
+
+- Ideal for **component-based frameworks** (React, Vue, Svelte)
+- Forces a reusable, consistent system from the ground up
+- Scales naturally with UI complexity
+- Aligns tightly with Storybook, Figma, and design systems
+
+### 🚫 Atomic Design Challenges
+
+- Higher upfront planning and structure
+- Requires strict discipline to implement consistently
+- Might not be ideal for small, non-component-heavy projects
+
+---
+
+## 🥊 SMACSS vs Atomic Design
+
+| Feature              | SMACSS                          | Atomic Design                    |
+|----------------------|----------------------------------|----------------------------------|
+| Focus                | CSS organization and scale       | UI hierarchy and reusability     |
+| Structure            | Style categories (base, layout)  | Component levels (atoms, pages)  |
+| Best for             | Large traditional CSS projects   | Component-driven UIs             |
+| Specificity control  | Strong (low specificity)         | Varies per implementation        |
+| Design system fit    | Moderate                         | Excellent                        |
+| Tooling synergy      | Manual or Sass-based             | Strong with Storybook/Figma      |
+| Learning curve       | Moderate                         | High (but structured)            |
+
+---
+
+## 🧠 When to Choose What?
+
+| Project Type                        | Recommendation             |
+|------------------------------------|-----------------------------|
+| Legacy or traditional web apps     | ✅ SMACSS                   |
+| Static websites / marketing pages  | ✅ SMACSS or ITCSS          |
+| Component libraries (React/Vue)    | ✅ Atomic Design            |
+| Design system development          | ✅ Atomic Design            |
+| Multi-brand theming                | ✅ SMACSS + theming layer   |
+| Solo projects or MVPs              | 🚫 Avoid over-architecting  |
+
+---
+
+## 🔄 Can They Coexist?
+
+Yes. Many modern teams mix both strategies. For example:
+
+- Use **Atomic Design** for folder structure and components.
+- Use **SMACSS** for naming and categorizing stylesheets inside each component.
+- Combine with **Tailwind CSS** or **CSS Modules** for utility or scope.
+
+---
+
+## 🔍 Other CSS Architectures Worth Knowing
+
+### 🧱 BEM (Block Element Modifier)
+- Naming convention for clarity
+- Example: `.card__title--highlighted`
+
+### 🪄 ITCSS (Inverted Triangle CSS)
+- Layers ordered by specificity
+- Scales well but requires tooling
+
+### 🔧 Utility-First (Tailwind CSS)
+- Uses predefined classes (`tw-bg-blue-500`, `tw-mx-auto`)
+- Fast and consistent, but opinionated
+
+---
+
+## 📚 Recommended Reading
+
+- [SMACSS Book – Jonathan Snook](https://smacss.com/)
+- [Atomic Design – Brad Frost](https://atomicdesign.bradfrost.com/)
+- [BEM Documentation](http://getbem.com/introduction/)
+- [ITCSS Explanation by Harry Roberts](https://www.creativebloq.com/advice/what-is-itcss-and-why-you-should-be-using-it)
+- [Tailwind CSS Docs](https://tailwindcss.com/docs)
+
+---
+
+## 💬 Final Thoughts
+
+Choosing the right CSS architecture isn't about trends — it's about **context**. Your team size, project scope, stack, and future plans should guide whether you pick SMACSS, Atomic Design, or a hybrid approach.
+
+Start simple. Stay consistent. And always prioritize readability and maintainability.
+

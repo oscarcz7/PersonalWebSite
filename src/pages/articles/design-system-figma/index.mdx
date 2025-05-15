@@ -1,0 +1,93 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+
+export const meta = {
+  author: 'Oscar Catota',
+  date: '2025-05-14',
+  title: 'How to Build a Design System in Figma (Without Limiting Designers)',
+  description:
+    'A practical guide to building a clear, scalable, and collaborative design system in Figma—from foundations to common pitfalls.',
+  lang: 'en',
+}
+
+export default (props) => <ArticleLayout meta={meta} {...props} />
+
+A good design system doesn't just help scale products—it enables frictionless collaboration between design and development. In this article, we explore how to build a solid design system in Figma, what to include, what to avoid, and how to keep it flexible.
+
+---
+
+## 🎯 What is a Design System?
+
+A design system is a **collection of principles, visual patterns, and reusable components** that ensure consistency across digital products.
+
+> A good system improves team communication, reduces tech debt, speeds up design cycles, and ensures visual and experiential consistency.
+
+---
+
+## 🧱 What Should a Good Design System Include?
+
+At minimum, a solid system should include:
+
+- **Foundations**: typography, color palette, spacing, grid, and tokens.
+- **UI Components**: buttons, inputs, cards, badges, modals, tabs, etc.
+- **Layout and Patterns**: headers, sidebars, forms, etc.
+- **Documentation**: how to use, when to use, variants, and edge cases.
+- **Clear Naming**: `Button / Primary`, `Input / Disabled`, etc.
+- **Shared Tokens** (ideally managed with tools like Style Dictionary or Tokens Studio)
+
+📌 Example structure in Figma:
+
+```
+Design System /
+  ├── Foundations
+  │     ├── Colors
+  │     ├── Typography
+  │     └── Spacing
+  ├── Components
+  │     ├── Buttons
+  │     ├── Forms
+  │     └── Cards
+  └── Guidelines
+        ├── Accessibility
+        ├── Layouts
+        └── Usage Examples
+```
+
+---
+
+## ❌ What to Avoid When Building a System
+
+Avoid these common pitfalls:
+
+- **Over-specifying**: Too much rigidity stifles creativity.
+- **Contextless Components**: Without real examples, adoption is hard.
+- **Lack of Maintenance**: A system that doesn’t evolve becomes irrelevant.
+- **Poor Documentation**: If it's not documented, it won't be used.
+- **Inconsistencies**: Watch for visual drift across themes and breakpoints.
+
+---
+
+## 🛠 Practical Tips
+
+- Use **atomic naming** and treat tokens as a **single source of truth**.
+- Audit the system regularly and remove unused elements.
+- Keep **feedback loops open** with both devs and designers.
+- Document real-world examples (inputs with validation, buttons with loading, etc).
+- Bake in **accessibility** from the beginning.
+
+---
+
+## 🔗 Useful Resources
+
+- [Design Systems Handbook – InVision](https://www.designbetter.co/design-systems-handbook)
+- [Figma Tokens Plugin](https://www.figma.com/community/plugin/843461159747178978)
+- [Material 3 Design System](https://m3.material.io/)
+- [Eva Design System](https://eva.design/)
+- [Supernova.io for system documentation](https://www.supernova.io/)
+
+---
+
+## 🚀 Final Thoughts
+
+A design system isn’t a checklist—it’s an ongoing **conversation** between design, code, and product. Building one in Figma helps you collaborate, scale, and evolve your work in a clear, sustainable way.
+
+Are you building your first system? Have lessons or mistakes to share? Let’s talk in the comments!

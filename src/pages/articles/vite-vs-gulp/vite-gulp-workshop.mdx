@@ -1,0 +1,101 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+
+export const meta = {
+  author: 'Oscar Catota',
+  date: '2025-05-15',
+  title: 'Hands-On Workshop: Migrating from Gulp to Vite',
+  description:
+    'A guided workshop for transitioning from Gulp to Vite. Learn the fundamental differences, migrate a sample project, and explore hybrid strategies.',
+  lang: 'en',
+}
+
+export default (props) => <ArticleLayout meta={meta} {...props} />
+
+---
+
+## 🎯 Workshop Goals
+
+- Understand the architectural differences between Gulp and Vite
+- Set up a basic Vite project
+- Migrate a simple Gulp-based pipeline to Vite
+- Explore hybrid workflows
+
+---
+
+## 🧰 Prerequisites
+
+- Node.js ≥ v18
+- Basic knowledge of HTML, CSS, and JavaScript
+- Familiarity with npm or yarn
+
+---
+
+## 📁 Step 1: Set Up a Legacy Gulp Project
+
+Create a basic Gulp project that compiles SCSS, minifies JS, and moves files to a `dist/` folder.
+
+Provide:
+
+- `gulpfile.js`
+- `src/scss/`, `src/js/`, `src/index.html`
+
+Run:
+
+```bash
+npm install --save-dev gulp gulp-sass gulp-clean-css gulp-uglify
+```
+
+---
+
+## ⚡ Step 2: Rebuild It in Vite
+
+1. Create a new Vite project:
+
+```bash
+npm create vite@latest vite-project -- --template vanilla
+cd vite-project && npm install
+```
+
+2. Move styles and scripts into `src/`
+
+3. Configure `vite.config.js` for output folder, static files, and CSS
+
+---
+
+## 🔀 Step 3: Run Both in Parallel
+
+Use this setup to observe differences in:
+
+- Build times
+- Live reloading
+- Bundle sizes
+
+---
+
+## 🔍 Exercise
+
+Try migrating:
+
+- Custom font loading
+- Image optimization plugin (e.g., `gulp-imagemin` vs `vite-imagetools`)
+- HTML templating (e.g., Handlebars vs EJS with Vite plugin)
+
+---
+
+## 🧠 Key Takeaways
+
+- Gulp is powerful for non-JS pipelines
+- Vite excels at JavaScript module-based development
+- Combining both can support legacy + modern workflows
+
+---
+
+## 💬 Optional Challenge
+
+Add TailwindCSS to the Vite setup and reconfigure your SCSS to use utility classes.
+
+---
+
+## ✅ Summary
+
+You’ve migrated a basic build pipeline from Gulp to Vite. You’ve explored differences in speed, simplicity, and DX — and how to adopt modern workflows with minimal friction.

@@ -1,0 +1,203 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+
+export const meta = {
+  author: 'Oscar Catota',
+  date: '2025-05-15',
+  title: 'From Figma to Code: Building Interfaces That Stay True to Design',
+  description:
+    'An in-depth guide for developers to convert Figma-based design systems into scalable, maintainable HTML and CSS — bridging the gap between design and implementation.',
+  lang: 'en',
+}
+
+export default (props) => <ArticleLayout meta={meta} {...props} />
+
+Taking your design system from Figma to production code is a critical step in building user interfaces that are consistent, accessible, and scalable. But this translation process often breaks down — not because of bad intentions, but due to misalignment in structure, language, and priorities.
+
+In this article, we go deep into how to turn your design system in Figma into clean HTML and CSS, using design tokens, component thinking, and modern tooling.
+
+---
+
+## 🎯 Why This Matters
+
+Designers work in Figma. Developers build in code. The gap in between is where most of the miscommunication and visual drift happens.
+
+**Closing that gap** means:
+
+- Reducing rework from misunderstood specs
+- Improving consistency between design and frontend
+- Increasing speed in development with reusable patterns
+- Building a system that's easier to maintain over time
+
+---
+
+## 🧱 Step 1: Extract and Normalize Design Tokens
+
+Design tokens are the foundation for scalable design systems. They represent visual values such as:
+
+- Colors (`primary`, `neutral-100`)
+- Typography (`font-size-sm`, `line-height-lg`)
+- Spacing (`spacing-4`, `padding-md`)
+- Elevation, radius, z-index, opacity
+
+### 🔧 How to extract from Figma
+
+Use plugins like:
+
+- [Figma Tokens](https://www.figma.com/community/plugin/843461159747178978)
+- [Design Token Exporter](https://www.figma.com/community/plugin/876619244393011362)
+
+These tools let you export token values as JSON.
+
+Example Figma token JSON:
+
+```json
+{
+  "color": {
+    "primary": "#3364dd",
+    "background": "#ffffff"
+  },
+  "spacing": {
+    "md": "1rem"
+  },
+  "typography": {
+    "body": {
+      "fontSize": "16px",
+      "lineHeight": "24px"
+    }
+  }
+}
+```
+
+---
+
+## 💡 Step 2: Map Tokens to CSS Custom Properties
+
+Once exported, you can translate those tokens into `:root` CSS variables or preprocess them using tools like [Style Dictionary](https://amzn.github.io/style-dictionary/).
+
+```css
+:root {
+  --color-primary: #3364dd;
+  --spacing-md: 1rem;
+  --font-body-size: 1rem;
+  --font-body-line-height: 1.5rem;
+}
+```
+
+Use these variables throughout your SCSS or utility classes for consistency.
+
+---
+
+## 🧩 Step 3: Structure Your Component Library
+
+Use atomic or component-driven thinking:
+
+- `Atoms`: buttons, inputs, badges
+- `Molecules`: input groups, cards
+- `Organisms`: forms, navbars, modals
+
+For each component:
+
+1. Reference your Figma components.
+2. Match padding, border, size, and typography.
+3. Code reusably — avoid one-off classes unless explicitly needed.
+
+Example SCSS for a `Button`:
+
+```scss
+.btn {
+  padding: var(--spacing-md);
+  font-size: var(--font-body-size);
+  border-radius: 0.5rem;
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: #2850ba;
+  }
+}
+```
+
+---
+
+## 📐 Step 4: Match Layouts and Grids
+
+Check your Figma grid setup:
+
+- How many columns?
+- What’s the gutter size?
+- Are there breakpoints defined?
+
+Then replicate with a utility framework or custom layout system.
+
+Tailwind example:
+
+```html
+<div class="grid grid-cols-12 gap-4">
+  <div class="col-span-6">Left Column</div>
+  <div class="col-span-6">Right Column</div>
+</div>
+```
+
+Custom CSS Grid:
+
+```css
+.container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1rem;
+}
+```
+
+---
+
+## 🧪 Step 5: Test for Visual Parity
+
+✅ Overlay Figma mocks on your coded layout  
+✅ Use tools like [PixelSnap](https://getpixelsnap.com/) or [VisBug](https://github.com/GoogleChromeLabs/ProjectVisBug)  
+✅ Verify spacing, alignment, font, size, shadows, and colors  
+✅ Ask designers for sign-off on components and states
+
+---
+
+## 🚫 What to Avoid
+
+- Overwriting tokens in components (use the variables!)
+- Implementing visual tweaks that don't match the system
+- Ignoring responsive specs from the design
+- Using hardcoded values without documentation
+- Building without accessibility in mind (ARIA, focus, contrast)
+
+---
+
+## 🚀 Step 6: Automate Design → Code Workflows
+
+You can use advanced tools like:
+
+- [Token Studio](https://tokens.studio/)
+- [Supernova](https://www.supernova.io/)
+- [Zeroheight](https://zeroheight.com/)
+
+These tools bridge design and development with real-time documentation and token management.
+
+---
+
+## 🔗 Recommended Resources
+
+- [Figma Tokens Plugin](https://www.figma.com/community/plugin/843461159747178978)
+- [Style Dictionary by Amazon](https://amzn.github.io/style-dictionary/)
+- [Token Studio Docs](https://docs.tokens.studio/)
+- [SmashingMag: From Design System to Production](https://www.smashingmagazine.com/2020/03/design-system-production/)
+- [Design Tokens Community Group](https://design-tokens.github.io/community-group/)
+
+---
+
+## 💬 Final Thoughts
+
+Going from Figma to production code is not a handoff — it’s a **collaborative translation** process. With well-structured tokens, clear naming conventions, component thinking, and feedback loops between teams, your frontend implementation can stay true to the design system — and scale with confidence.
+
+---
+
+Ready to convert your Figma system into real code? Let’s build it together.

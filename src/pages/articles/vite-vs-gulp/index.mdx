@@ -1,0 +1,153 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+
+export const meta = {
+  author: 'Oscar Catota',
+  date: '2025-05-15',
+  title: 'Vite vs Gulp: Understanding the Shift in Frontend Build Tools',
+  description:
+    'Explore the differences between Vite and Gulp, their use cases, performance benefits, and which one to choose for modern frontend development.',
+  lang: 'en',
+}
+
+export default (props) => <ArticleLayout meta={meta} {...props} />
+
+Frontend tooling has evolved dramatically in recent years. Where **Gulp** once ruled the workflow automation landscape, newer tools like **Vite** are reshaping how developers build and serve modern JavaScript applications.
+
+In this article, we’ll compare Vite and Gulp, understand their fundamental differences, use cases, and how each fits into today's development ecosystems.
+
+---
+
+## ⚙️ What is Gulp?
+
+**Gulp** is a JavaScript-based task runner introduced in 2013, designed to automate repetitive workflows like:
+
+- Compiling Sass/Less
+- Minifying CSS/JS
+- Image optimization
+- Watching files for changes
+- Live reload during development
+
+Gulp works by chaining plugins in a pipeline using `gulpfile.js`.
+
+Example:
+
+```js
+const gulp = require('gulp')
+const sass = require('gulp-sass')(require('sass'))
+const cleanCSS = require('gulp-clean-css')
+
+gulp.task('styles', () =>
+  gulp
+    .src('src/scss/**/*.scss')
+    .pipe(sass())
+    .pipe(cleanCSS())
+    .pipe(gulp.dest('dist/css'))
+)
+```
+
+### ✅ Gulp Pros
+
+- Highly customizable
+- Works well with legacy systems and static sites
+- Great for non-JS assets (images, fonts, HTML, email templates)
+
+### 🚫 Gulp Cons
+
+- Manual config and maintenance
+- Slower rebuilds on large projects
+- Not optimized for modern module bundling or hot reload
+
+---
+
+## ⚡ What is Vite?
+
+**Vite**, created by Evan You (creator of Vue), is a **next-gen frontend tool** designed for blazing-fast development and optimized builds.
+
+Key features:
+
+- Native ES modules support
+- Lightning-fast hot module replacement (HMR)
+- Out-of-the-box support for TypeScript, Vue, React, Svelte
+- Built-in dev server and build pipeline (using Rollup under the hood)
+
+Example config (`vite.config.ts`):
+
+```ts
+import { defineConfig } from 'vite'
+
+export default defineConfig({
+  root: 'src',
+  build: {
+    outDir: '../dist',
+  },
+})
+```
+
+### ✅ Vite Pros
+
+- Extremely fast cold starts and rebuilds
+- Native support for modern JS frameworks
+- Built-in optimizations (code splitting, minification, tree-shaking)
+- Easier to configure than Webpack
+
+### 🚫 Vite Cons
+
+- Less suited for non-module-based workflows (e.g., multi-page templates with Handlebars)
+- Requires adapting if migrating from traditional task runners
+- Plugin ecosystem is still growing (compared to Gulp's ecosystem)
+
+---
+
+## 🔍 When to Use Gulp
+
+- Legacy projects using jQuery or static HTML templates
+- Multi-pipeline sites (e.g., Sitecore, WordPress) that need custom build steps
+- Tasks not tied to JS module bundling (e.g., PDF generation, email templates)
+
+---
+
+## 🚀 When to Use Vite
+
+- Modern JavaScript apps (React, Vue, Svelte, etc.)
+- Projects using TypeScript or ES Modules
+- Teams that want minimal setup with maximal speed
+- When fast dev server + HMR is critical
+
+---
+
+## 🧠 Can They Be Used Together?
+
+Yes. Some teams use **Vite for frontend components** and **Gulp for legacy tasks** like:
+
+- Compiling legacy SCSS pipelines
+- Moving static files or assets
+- Generating PDFs or server-rendered HTML
+
+This hybrid approach works well during transitions or partial upgrades.
+
+---
+
+## 🧰 Migration Tip
+
+If you're moving from Gulp to Vite:
+
+- Identify tasks Gulp performs that Vite doesn't (e.g., file copying, image compression)
+- Replace with Vite plugins or Node scripts where possible
+- Keep Gulp as a fallback runner for edge tasks (i.e., SSR, non-module builds)
+
+---
+
+## 🔗 Useful Resources
+
+- [Gulp Documentation](https://gulpjs.com/docs/en/getting-started/quick-start/)
+- [Vite Documentation](https://vitejs.dev/)
+- [Vite Plugin List](https://vitejs.dev/plugins/)
+- [Migrating to Vite from Legacy Tools](https://vitejs.dev/guide/migration.html)
+
+---
+
+## 🧾 Final Thoughts
+
+Vite is not a direct replacement for Gulp — it’s a paradigm shift. It’s built for **modern frontend development**, where speed, modularity, and DX matter most. Gulp still has its place for asset processing and legacy use cases.
+
+Choose the right tool based on your project’s needs — or blend both when appropriate.
